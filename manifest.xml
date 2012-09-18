@@ -9,6 +9,9 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/regui</url>
 
+  <rosdep name="libqt4-dev"/>
+  <rosdep name="qt4-qmake"/>
+
 </package>
 
 
