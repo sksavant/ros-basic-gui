@@ -1,0 +1,14 @@
+<package>
+  <description brief="regui">
+
+     regui
+
+  </description>
+  <author>savant</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/regui</url>
+
+</package>
+
+
