@@ -34,5 +34,18 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
 #target_link_libraries(example ${PROJECT_NAME})
-rosbuild_add_executable(regui src/regui.cpp)
+
+set(regui_frame_SRCS
+  src/regui.cpp
+  src/regui_frame.cpp
+)
+
+set(regui_frame_HDRS
+  include/regui/gui_frame.h
+)
+
+qt4_wrap_cpp(regui_frame_MOCS ${regui_frame_HDRS})
+
+rosbuild_add_executable(regui_frame ${regui_frame_SRCS} ${regui_frame_MOCS})
+target_link_libraries(regui_frame ${QT_LIBRARIES} ${ROS_LIBRARIES} ${Boost_LIBRARIES})
 
