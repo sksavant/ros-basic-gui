@@ -2,7 +2,7 @@
 #include <QApplication>
 
 #include <ros/ros.h>
-
+#include "regui/gui_frame.h"
 class GuiApp : public QApplication
 {
 public:
@@ -15,7 +15,9 @@ public:
 
   int exec(){
     std::cout<<"Hello! I'm executed!"<<std::endl;
-    return 0;
+    regui::GuiFrame frame;
+    frame.show();
+    return QApplication::exec();
   }
 
 };
