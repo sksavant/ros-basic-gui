@@ -1,6 +1,8 @@
-#include <regui/gui_frame.h>
+#include "regui/regui_frame.h"
 
 #include <QPointF>
+#include <QObject>
+#include <QtGui>
 
 #include <ros/package.h>
 #include <cstdlib>
@@ -24,20 +26,30 @@ GuiFrame::GuiFrame(QWidget* parent, Qt::WindowFlags f) : QFrame(parent,f)
     layout->addWidget(sliderWidget);
     layout->addWidget(slider);
     setLayout(layout);
+
+    connect(slider,SIGNAL(valueChanged(int)),&sliderval_,SLOT(printtheval(int)));
     //To put some objects etc
 }
 
 GuiFrame::~GuiFrame()
 {
-
+    delete slider;
+    delete layout;
+    delete sliderWidget;
 }
 
-GuiFrame::PrintthePostion(int y)
-{
-    int x;
-    while(x<10){
-    std::cout<<slider->tickPosition()<<std::endl;
+void GuiFrame::whatever(){
+    while(1){
+        std::cout<<slider->tickPosition()<<std::endl;
     }
+}
+
+void GuiFrame::valueChanged(int newval){
+    emit slider->valueChanged(newval);
+}
+
+void printtheval(int val){
+    std::cout<<val<<std::endl;
 }
 
 }

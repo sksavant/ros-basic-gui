@@ -2,13 +2,13 @@
 #include <QApplication>
 
 #include <ros/ros.h>
-#include "regui/gui_frame.h"
+#include "regui/regui_frame.h"
 
 class GuiApp : public QApplication
 {
 public:
   ros::NodeHandlePtr nh_;
-
+  regui::GuiFrame frame;
   GuiApp(int argc, char** argv) : QApplication(argc, argv){
     ros::init(argc,argv,"regui",ros::init_options::NoSigintHandler);
     nh_.reset(new ros::NodeHandle);
@@ -16,9 +16,9 @@ public:
 
   int exec(){
     ROS_INFO("Hello! I'm executed");
-    regui::GuiFrame frame;
+    //regui::GuiFrame frame;
     frame.show();
-    frame.regui::GuiFrame::PrintthePosition(5);
+    //frame.regui::GuiFrame::whatever();
     return QApplication::exec();
   }
 

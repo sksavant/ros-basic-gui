@@ -1,3 +1,5 @@
+#ifndef REGUI_GUI_FRAME
+#define REGUI_GUI_FRAME
 
 #include <QFrame>
 #include <QSlider>
@@ -14,13 +16,21 @@ class GuiFrame : public QFrame
 public:
   GuiFrame(QWidget* parent=0, Qt::WindowFlags f = 0);
   ~GuiFrame();
-  void PrintthePosition(int );
 
 private:
   QSlider* slider;
   QVBoxLayout *layout;
   QWidget* sliderWidget;
+  QString sliderval_;
+
+public slots:
+  void printtheval(int);
+signals:
+  void valueChanged(int newvalue);
+public:
+  void whatever();
 };
 
 
 }
+#endif

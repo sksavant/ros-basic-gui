@@ -41,7 +41,7 @@ set(regui_frame_SRCS
 )
 
 set(regui_frame_HDRS
-  include/regui/gui_frame.h
+  include/regui/regui_frame.h
 )
 
 qt4_wrap_cpp(regui_frame_MOCS ${regui_frame_HDRS})
