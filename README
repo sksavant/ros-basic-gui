@@ -1,0 +1,7 @@
+ros-basic-gui
+This repo consists of ros node which will display a frame with slider,
+2 editable text boxes, a push button, a text display.
+The node will publish to the slider value to a topic.
+Pressing push button will send a request to Arithmetica::add service which will
+send the sum as the response. The response should be displayed on the text 
+display dialog.
