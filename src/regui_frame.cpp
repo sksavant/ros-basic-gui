@@ -38,12 +38,6 @@ GuiFrame::~GuiFrame()
     delete sliderWidget;
 }
 
-void GuiFrame::whatever(){
-    while(1){
-        std::cout<<slider->tickPosition()<<std::endl;
-    }
-}
-
 void GuiFrame::printtheval(int val){
     std::cout<<val<<std::endl;
 }

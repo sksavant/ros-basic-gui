@@ -27,10 +27,7 @@ public slots:
   void printtheval(int);
 signals:
   void valueChanged(int newvalue);
-public:
-  void whatever();
 };
-
 
 }
 #endif
