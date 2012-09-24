@@ -27,7 +27,7 @@ GuiFrame::GuiFrame(QWidget* parent, Qt::WindowFlags f) : QFrame(parent,f)
     layout->addWidget(slider);
     setLayout(layout);
 
-    connect(slider,SIGNAL(valueChanged(int)),&sliderval_,SLOT(printtheval(int)));
+    connect(slider,SIGNAL(valueChanged(int)),this,SLOT(printtheval(int)));
     //To put some objects etc
 }
 
@@ -44,11 +44,7 @@ void GuiFrame::whatever(){
     }
 }
 
-void GuiFrame::valueChanged(int newval){
-    emit slider->valueChanged(newval);
-}
-
-void printtheval(int val){
+void GuiFrame::printtheval(int val){
     std::cout<<val<<std::endl;
 }
 
