@@ -29,6 +29,9 @@ GuiFrame::GuiFrame(QWidget* parent, Qt::WindowFlags f) : QFrame(parent,f)
 
     connect(slider,SIGNAL(valueChanged(int)),this,SLOT(printtheval(int)));
     //To put some objects etc
+
+    slider_val_pub_ = nh_.advertise<SliderVal>("slider_value",1);
+
 }
 
 GuiFrame::~GuiFrame()
@@ -38,8 +41,11 @@ GuiFrame::~GuiFrame()
     delete sliderWidget;
 }
 
-void GuiFrame::printtheval(int val){
-    std::cout<<val<<std::endl;
+void GuiFrame::printtheval(int value){
+    //std::cout<<value<<std::endl;
+    SliderVal sliderval;
+    sliderval.val = value;
+    slider_val_pub_.publish(sliderval);
 }
 
 }

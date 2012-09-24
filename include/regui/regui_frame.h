@@ -16,7 +16,7 @@ class GuiFrame : public QFrame
 {
   Q_OBJECT
 public:
-  GuiFrame(const ros::NodeHandle& nh , QWidget* parent=0, Qt::WindowFlags f = 0);
+  GuiFrame(QWidget* parent=0, Qt::WindowFlags f = 0);
   ~GuiFrame();
 
 private:
@@ -25,13 +25,10 @@ private:
   QWidget* sliderWidget;
 
   ros::NodeHandle nh_;
-  ros::Publisher slider_val_;
-
+  ros::Publisher slider_val_pub_;
 
 public slots:
   void printtheval(int);
-signals:
-  void valueChanged(int newvalue);
 };
 
 }
