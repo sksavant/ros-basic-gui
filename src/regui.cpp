@@ -14,7 +14,7 @@ public:
   }
 
   int exec(){
-    ROS_INFO("Hello! I'm executed");
+    ROS_INFO("Hello! I'm regui, your personal GUI tool. I'll be becoming smart over time...");
     regui::GuiFrame frame;
     frame.show();
     return QApplication::exec();
