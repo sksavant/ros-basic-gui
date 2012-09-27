@@ -16,15 +16,18 @@ GuiFrame::GuiFrame(QWidget* parent, Qt::WindowFlags f) : QFrame(parent,f)
     setFixedSize(500,500);
     setWindowTitle("ROS Basic GUI");
     slider = new QSlider(Qt::Horizontal);
+    number1 = new QDoubleSpinBox;
+    number2 = new QDoubleSpinBox;
+
     slider->setFocusPolicy(Qt::StrongFocus);
     slider->setTickPosition(QSlider::TicksBothSides);
     slider->setTickInterval(10);
     slider->setSingleStep(0.1);
 
     layout = new QVBoxLayout;
-    sliderWidget = new QWidget;
-    layout->addWidget(sliderWidget);
     layout->addWidget(slider);
+    layout->addWidget(number1);
+    layout->addWidget(number2);
     setLayout(layout);
 
     connect(slider,SIGNAL(valueChanged(int)),this,SLOT(printtheval(int)));
@@ -38,7 +41,8 @@ GuiFrame::~GuiFrame()
 {
     delete slider;
     delete layout;
-    delete sliderWidget;
+    delete number1;
+    delete number2;
 }
 
 void GuiFrame::printtheval(int value){

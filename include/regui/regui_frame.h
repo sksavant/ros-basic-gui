@@ -5,6 +5,7 @@
 #include <QSlider>
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QDoubleSpinBox>
 #include <ros/ros.h>
 
 #include <regui/SliderVal.h>
@@ -21,8 +22,9 @@ public:
 
 private:
   QSlider* slider;
+  QDoubleSpinBox* number1;
+  QDoubleSpinBox* number2;
   QVBoxLayout *layout;
-  QWidget* sliderWidget;
 
   ros::NodeHandle nh_;
   ros::Publisher slider_val_pub_;
