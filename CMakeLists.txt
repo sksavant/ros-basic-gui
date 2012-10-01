@@ -25,7 +25,7 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #uncomment if you have defined messages
 rosbuild_genmsg()
 #uncomment if you have defined services
-#rosbuild_gensrv()
+rosbuild_gensrv()
 
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
@@ -48,4 +48,7 @@ qt4_wrap_cpp(regui_frame_MOCS ${regui_frame_HDRS})
 
 rosbuild_add_executable(regui_frame ${regui_frame_SRCS} ${regui_frame_MOCS})
 target_link_libraries(regui_frame ${QT_LIBRARIES} ${ROS_LIBRARIES} ${Boost_LIBRARIES})
+
+rosbuild_add_executable(add_two_ints_server src/add_two_ints_server.cpp)
+target_link_libraries(add_two_ints_server ${ROS_LIBRARIES})
 
